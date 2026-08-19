@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import axios from "axios";
+import api from "../api/api";
 import { motion } from "framer-motion";
 import {
   FiCode,
@@ -27,9 +27,7 @@ function Skills() {
 
   const loadSkills = async () => {
     try {
-      const response = await axios.get(
-        "http://localhost:8081/api/skills"
-      );
+      const response = await api.get("/api/skills");
 
       setSkills(response.data);
     } catch (error) {

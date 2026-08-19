@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import api from "../api/api";
 import {
   FiEdit2,
   FiTrash2,
@@ -34,9 +34,7 @@ function AdminProjects() {
 
   const loadProjects = async () => {
     try {
-      const response = await axios.get(
-        "http://localhost:8081/api/projects/all"
-      );
+      const response = await api.get("/api/projects/all");
 
       setProjects(response.data);
     } catch (error) {
@@ -66,35 +64,30 @@ function AdminProjects() {
     setShowForm(false);
   };
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+const handleSubmit = async (event) => {
+  event.preventDefault();
 
-    try {
-      setLoading(true);
+  try {
+    setLoading(true);
 
-      if (editingId) {
-        await axios.put(
-          `http://localhost:8081/api/projects/${editingId}`,
-          form
-        );
-      } else {
-        await axios.post(
-          "http://localhost:8081/api/projects",
-          form
-        );
-      }
-
-      await loadProjects();
-
-      resetForm();
-    } catch (error) {
-      console.error("Project save failed:", error);
-
-      alert("Unable to save project.");
-    } finally {
-      setLoading(false);
+    if (editingId) {
+      await api.put(`/api/projects/${editingId}`, form);
+    } else {
+      await api.post("/api/projects", form);
     }
-  };
+
+    await loadProjects();
+    resetForm();
+
+  } catch (error) {
+    console.error("Project save failed:", error);
+    console.error("Response:", error.response?.data);
+
+    alert("Unable to save project.");
+  } finally {
+    setLoading(false);
+  }
+};
 
   const handleEdit = (project) => {
     setForm({
@@ -122,26 +115,25 @@ function AdminProjects() {
   };
 
   const handleDelete = async (id) => {
-    const confirmed = window.confirm(
-      "Are you sure you want to delete this project?"
-    );
+  const confirmed = window.confirm(
+    "Are you sure you want to delete this project?"
+  );
 
-    if (!confirmed) {
-      return;
-    }
+  if (!confirmed) {
+    return;
+  }
 
-    try {
-      await axios.delete(
-        `http://localhost:8081/api/projects/${id}`
-      );
+  try {
+    await api.delete(`/api/projects/${id}`);
+    await loadProjects();
 
-      await loadProjects();
-    } catch (error) {
-      console.error("Project delete failed:", error);
+  } catch (error) {
+    console.error("Project delete failed:", error);
+    console.error("Response:", error.response?.data);
 
-      alert("Unable to delete project.");
-    }
-  };
+    alert("Unable to delete project.");
+  }
+};
 
   return (
     <div className="admin-projects-page">

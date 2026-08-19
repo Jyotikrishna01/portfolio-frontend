@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import api from "../api/api";
 import { motion } from "framer-motion";
 import {
   FiArrowUpRight,
@@ -20,9 +20,7 @@ function Projects() {
       setLoading(true);
       setError("");
 
-      const response = await axios.get(
-        "http://localhost:8081/api/projects"
-      );
+     const response = await api.get("/api/projects");
 
       setProjects(response.data);
     } catch (err) {
