@@ -1,0 +1,184 @@
+.navbar {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.nav-container {
+  width: 100%;
+  max-width: 1400px;
+  height: 76px;
+
+  margin: auto;
+  padding: 0 6%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 27px;
+  font-weight: 900;
+  color: #0f172a;
+  letter-spacing: -1px;
+}
+
+.logo span {
+  color: #6366f1;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+}
+
+.nav-menu > a:not(.nav-cta) {
+  color: #475569;
+  font-size: 14px;
+  font-weight: 600;
+
+  position: relative;
+
+  transition: 0.25s ease;
+}
+
+.nav-menu > a:not(.nav-cta)::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -7px;
+
+  width: 0;
+  height: 2px;
+
+  background: #6366f1;
+
+  transition: width 0.25s ease;
+}
+
+.nav-menu > a:not(.nav-cta):hover {
+  color: #0f172a;
+}
+
+.nav-menu > a:not(.nav-cta):hover::after {
+  width: 100%;
+}
+
+.nav-cta {
+  min-height: 42px;
+
+  padding: 0 18px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  border-radius: 10px;
+
+  background: #0f172a;
+
+  color: white;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  transition: all 0.25s ease;
+}
+
+.nav-cta:hover {
+  transform: translateY(-2px);
+
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.18);
+}
+
+.menu-btn {
+  display: none;
+
+  border: none;
+
+  background: transparent;
+
+  color: #0f172a;
+
+  font-size: 26px;
+
+  cursor: pointer;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 850px) {
+
+  .menu-btn {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+  }
+
+  .nav-menu {
+    position: fixed;
+
+    top: 76px;
+
+    left: 0;
+
+    width: 100%;
+
+    padding: 30px 6%;
+
+    background: rgba(255, 255, 255, 0.98);
+
+    backdrop-filter: blur(20px);
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 24px;
+
+    border-bottom: 1px solid #e2e8f0;
+
+    transform: translateY(-150%);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition: all 0.3s ease;
+  }
+
+  .nav-menu.active {
+    transform: translateY(0);
+
+    opacity: 1;
+
+    visibility: visible;
+  }
+
+  .nav-menu > a:not(.nav-cta) {
+    font-size: 17px;
+  }
+
+  .nav-cta {
+    width: 100%;
+
+    justify-content: center;
+
+    min-height: 48px;
+  }
+}

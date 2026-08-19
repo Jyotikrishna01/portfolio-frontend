@@ -1,0 +1,422 @@
+.admin-projects-page {
+  min-height: 100vh;
+  background: #f8fafc;
+  padding: 70px 20px;
+}
+
+.admin-projects-container {
+  max-width: 1150px;
+  margin: auto;
+}
+
+.admin-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 30px;
+
+  margin-bottom: 35px;
+}
+
+.admin-eyebrow {
+  color: #6366f1;
+
+  font-size: 13px;
+  font-weight: 800;
+
+  text-transform: uppercase;
+
+  letter-spacing: 1.4px;
+
+  margin-bottom: 8px;
+}
+
+.admin-header h1 {
+  color: #0f172a;
+
+  font-size: 42px;
+
+  margin-bottom: 8px;
+}
+
+.admin-header > div > p:last-child {
+  color: #64748b;
+}
+
+.admin-add-btn {
+  min-height: 46px;
+
+  padding: 0 18px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: #0f172a;
+
+  color: white;
+
+  font-weight: 700;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  cursor: pointer;
+}
+
+.admin-project-form {
+  background: white;
+
+  padding: 30px;
+
+  border-radius: 18px;
+
+  border: 1px solid #e2e8f0;
+
+  margin-bottom: 35px;
+
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.06);
+}
+
+.form-header {
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+  margin-bottom: 28px;
+}
+
+.form-header h2 {
+  color: #0f172a;
+
+  margin-bottom: 5px;
+}
+
+.form-header p {
+  color: #64748b;
+}
+
+.form-close-btn {
+  border: none;
+
+  background: #f1f5f9;
+
+  width: 38px;
+  height: 38px;
+
+  border-radius: 9px;
+
+  display: grid;
+
+  place-items: center;
+
+  cursor: pointer;
+
+  font-size: 19px;
+}
+
+.admin-form-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 20px;
+}
+
+.admin-field {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+.admin-field label {
+  color: #334155;
+
+  font-size: 14px;
+
+  font-weight: 700;
+}
+
+.admin-field input,
+.admin-field textarea {
+  width: 100%;
+
+  padding: 13px 14px;
+
+  border: 1px solid #cbd5e1;
+
+  border-radius: 9px;
+
+  outline: none;
+
+  color: #0f172a;
+
+  transition: 0.2s;
+}
+
+.admin-field textarea {
+  min-height: 120px;
+
+  resize: vertical;
+}
+
+.admin-field input:focus,
+.admin-field textarea:focus {
+  border-color: #6366f1;
+
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.08);
+}
+
+.admin-field small {
+  color: #94a3b8;
+
+  font-size: 12px;
+}
+
+.full-field {
+  grid-column: 1 / -1;
+}
+
+.admin-checkbox {
+  grid-column: 1 / -1;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  color: #334155;
+
+  font-weight: 600;
+}
+
+.admin-checkbox input {
+  width: 17px;
+  height: 17px;
+}
+
+.admin-form-actions {
+  margin-top: 28px;
+
+  display: flex;
+
+  justify-content: flex-end;
+
+  gap: 12px;
+}
+
+.cancel-btn,
+.save-btn {
+  min-height: 44px;
+
+  padding: 0 20px;
+
+  border-radius: 9px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.cancel-btn {
+  background: white;
+
+  border: 1px solid #cbd5e1;
+
+  color: #475569;
+}
+
+.save-btn {
+  border: none;
+
+  background: #6366f1;
+
+  color: white;
+}
+
+.admin-project-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 15px;
+}
+
+.admin-project-card {
+  background: white;
+
+  border: 1px solid #e2e8f0;
+
+  border-radius: 16px;
+
+  padding: 24px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: 30px;
+
+  align-items: center;
+}
+
+.admin-project-info {
+  flex: 1;
+}
+
+.admin-project-top {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  margin-bottom: 9px;
+}
+
+.admin-project-top > span:first-child {
+  color: #6366f1;
+
+  font-size: 12px;
+
+  font-weight: 800;
+
+  text-transform: uppercase;
+}
+
+.status {
+  padding: 4px 8px;
+
+  border-radius: 999px;
+
+  font-size: 11px;
+
+  font-weight: 800;
+}
+
+.status.active {
+  color: #15803d;
+
+  background: #dcfce7;
+}
+
+.status.inactive {
+  color: #b91c1c;
+
+  background: #fee2e2;
+}
+
+.admin-project-card h3 {
+  color: #0f172a;
+
+  margin-bottom: 7px;
+}
+
+.admin-project-card p {
+  color: #64748b;
+
+  line-height: 1.6;
+
+  margin-bottom: 9px;
+}
+
+.admin-project-card small {
+  color: #94a3b8;
+}
+
+.admin-project-buttons {
+  display: flex;
+
+  gap: 9px;
+}
+
+.edit-btn,
+.delete-btn {
+  padding: 10px 14px;
+
+  border-radius: 8px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.edit-btn {
+  border: 1px solid #c7d2fe;
+
+  background: #eef2ff;
+
+  color: #4f46e5;
+}
+
+.delete-btn {
+  border: 1px solid #fecaca;
+
+  background: #fff1f2;
+
+  color: #dc2626;
+}
+
+.admin-empty {
+  padding: 50px;
+
+  text-align: center;
+
+  background: white;
+
+  border: 1px dashed #cbd5e1;
+
+  border-radius: 16px;
+
+  color: #64748b;
+}
+
+@media (max-width: 750px) {
+  .admin-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .admin-add-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .admin-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .full-field,
+  .admin-checkbox {
+    grid-column: auto;
+  }
+
+  .admin-project-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .admin-project-buttons {
+    width: 100%;
+  }
+
+  .edit-btn,
+  .delete-btn {
+    flex: 1;
+    justify-content: center;
+  }
+}
